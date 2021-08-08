@@ -3,7 +3,7 @@ package easy;
 import java.util.HashSet;
 
 public class Q160_IntersectionofTwoLinkedLists {
-    public class ListNode {
+    class ListNode {
         int val;
         ListNode next;
         ListNode(int x) {
