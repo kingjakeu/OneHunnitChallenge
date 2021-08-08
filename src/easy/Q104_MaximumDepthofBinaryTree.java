@@ -2,7 +2,7 @@ package easy;
 
 public class Q104_MaximumDepthofBinaryTree {
 
-    public class TreeNode {
+    class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
