@@ -1,34 +1,36 @@
 package medium;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.management.Query;
+import java.util.*;
 
 public class Q46_Permutations {
-    class Solution {
-        List<List<Integer>> comb;
+    static class Solution {
+        List<List<Integer>> answer;
         public List<List<Integer>> permute(int[] nums) {
-            comb = new ArrayList<>();
-            perm(0, nums, new ArrayList<>());
-            return comb;
+            answer = new ArrayList<>();
+            List<Integer> numList = new ArrayList<>();
+            for(int n : nums){
+                numList.add(n);
+            }
+            perm(0, nums.length, numList);
+            return answer;
         }
+        public void perm(int idx, int length, List<Integer> nums){
+            if (idx == length){
+                answer.add(new ArrayList<>(nums));
+            }
+            for (int i = idx; i < length; i++) {
+                perm(idx + 1, length, nums);
+                int temp = nums.remove(idx);
+                nums.add(temp);
+            }
+        }
+    }
 
-        public void perm(int idx, int[] nums, List<Integer> current){
-            int length = nums.length;
-            int size = current.size();
-            if(size == length){
-                comb.add(new ArrayList<>(current));
-                return;
-            }
-            for (int i = 0; i < length - size; i++) {
-                List<Integer> temp = new ArrayList<>(current);
-                if(idx + i < length){
-                    temp.add(nums[idx + i]);
-                    perm(idx + i + 1, nums, temp);
-                }else{
-                    temp.add(nums[idx + i - length]);
-                    //perm(idx + i + 1, nums, temp);
-                }
-            }
-        }
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        int[] num = {1, 2, 3, 4};
+        s.permute(num);
+
     }
 }
