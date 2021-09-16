@@ -28,4 +28,23 @@ public class Q128_LongestConsecutiveSequence {
             return answer;
         }
     }
+    static class Temp{
+        public int a;
+        public Temp(int a){
+            this.a = a;
+        }
+    }
+
+    public static void main(String[] args) {
+        Temp one = new Temp(1);
+        int a = 0;
+        test(a);
+        System.out.println(a);
+        String str = "\\\\a\\a\\a";
+
+        System.out.println(str.intern());
+    }
+    public static void test(int a){
+        a = 3;
+    }
 }
